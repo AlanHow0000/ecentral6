@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Sentral Elite Condo - Final Launching Offer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+--gold: #d7b56d;
+--gold-strong: #f0cf87;
+--green: #4ee08a;
+--purple: #8e44ad;
+--bg: #07111c;
+--card: rgba(10, 16, 25, 0.78);
+--card-soft: rgba(255,255,255,0.05);
+--line: rgba(255,255,255,0.1);
+--text: rgba(255,255,255,0.92);
+--muted: rgba(255,255,255,0.68);
+--danger: #ff6b57;
+--shadow: 0 20px 60px rgba(0,0,0,0.35);
+--radius: 24px;
+}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+html {
+scroll-behavior: smooth;
+}
+
+body {
+font-family: 'Inter', sans-serif;
+background:
+linear-gradient(rgba(2, 8, 15, 0.45), rgba(2, 8, 15, 0.78)),
+url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+background-size: cover;
+background-color: var(--bg);
+color: var(--text);
+line-height: 1.6;
+}
+
+.fullscreen-password {
+position: fixed;
+inset: 0;
+background: radial-gradient(circle at top, rgba(142,68,173,0.16), transparent 28%), rgba(0,0,0,0.96);
+display: flex;
+align-items: center;
+justify-content: center;
+z-index: 999999;
+padding: 20px;
+}
+
+.password-box {
+width: 100%;
+max-width: 430px;
+background: rgba(255,255,255,0.98);
+padding: 42px 28px;
+border-radius: 24px;
+text-align: center;
+box-shadow: 0 0 40px rgba(142, 68, 173, 0.25);
+}
+
+.password-box .mini-label {
+font-size: 12px;
+font-weight: 800;
+letter-spacing: 0.24em;
+text-transform: uppercase;
+color: #8e44ad;
+margin-bottom: 10px;
+}
+
+.password-box h2 {
+color: #121212;
+margin-bottom: 10px;
+font-size: 30px;
+line-height: 1.15;
+font-family: 'Cormorant Garamond', serif;
+font-weight: 700;
+}
+
+.password-box p {
+color: #666;
+font-size: 14px;
+}
+
+.password-input {
+width: 100%;
+padding: 16px 18px;
+margin: 22px 0 14px;
+border: 1px solid #ddd;
+border-radius: 14px;
+font-size: 16px;
+outline: none;
+}
+
+.password-input:focus {
+border-color: #8e44ad;
+box-shadow: 0 0 0 4px rgba(142,68,173,0.12);
+}
+
+.password-btn {
+padding: 15px 20px;
+background: linear-gradient(135deg, #8e44ad, #6f2c8f);
+color: white;
+border: none;
+border-radius: 14px;
+font-size: 16px;
+font-weight: 700;
+cursor: pointer;
+width: 100%;
+transition: 0.2s ease;
+}
+
+.password-btn:hover {
+transform: translateY(-1px);
+box-shadow: 0 12px 24px rgba(142,68,173,0.25);
+}
+
+.error-msg {
+color: #e74c3c;
+font-size: 14px;
+margin-top: 14px;
+display: none;
+font-weight: 600;
+}
+
+.overlay {
+background: linear-gradient(180deg, rgba(4,11,20,0.62) 0%, rgba(4,11,20,0.86) 100%);
+min-height: 100vh;
+padding: 24px 16px 60px;
+display: none;
+}
+
+.container {
+max-width: 980px;
+margin: 0 auto;
+}
+
+.top-bar {
+position: sticky;
+top: 16px;
+z-index: 100;
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 14px;
+padding: 12px 14px;
+margin-bottom: 28px;
+border: 1px solid var(--line);
+border-radius: 20px;
+background: rgba(6, 12, 20, 0.58);
+backdrop-filter: blur(14px);
+box-shadow: var(--shadow);
+}
+
+.top-brand {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.top-brand h4 {
+font-size: 14px;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: rgba(255,255,255,0.9);
+}
+
+.top-brand p {
+font-size: 11px;
+color: var(--muted);
+text-transform: uppercase;
+letter-spacing: 0.18em;
+}
+
+.admin-menu {
+position: fixed;
+top: 0;
+left: 0;
+width: 280px;
+height: 100vh;
+background: rgba(255,255,255,0.98);
+color: #333;
+padding: 32px 20px;
+z-index: 9999;
+transform: translateX(-100%);
+transition: transform 0.3s ease;
+box-shadow: 8px 0 30px rgba(0,0,0,0.15);
+}
+
+.admin-menu.active {
+transform: translateX(0);
+}
+
+.menu-header {
+margin-bottom: 22px;
+border-bottom: 1px solid #ececec;
+padding-bottom: 16px;
+}
+
+.menu-header h3 {
+color: #8e44ad;
+font-size: 18px;
+margin-bottom: 6px;
+}
+
+.menu-header p {
+color: #777;
+font-size: 13px;
+}
+
+.menu-close {
+position: absolute;
+top: 16px;
+right: 16px;
+background: none;
+border: none;
+font-size: 24px;
+color: #333;
+cursor: pointer;
+}
+
+.slot-option {
+padding: 14px 12px;
+margin: 8px 0;
+background: #f5f5f7;
+border-radius: 12px;
+cursor: pointer;
+transition: 0.2s ease;
+font-weight: 500;
+}
+
+.slot-option:hover {
+background: #ececf1;
+transform: translateX(2px);
+}
+
+.menu-toggle {
+width: 42px;
+height: 42px;
+background: rgba(255,255,255,0.08);
+color: #fff;
+border: 1px solid rgba(255,255,255,0.12);
+border-radius: 12px;
+cursor: pointer;
+font-size: 18px;
+backdrop-filter: blur(10px);
+}
+
+.hero {
+padding: 22px 0 12px;
+text-align: center;
+}
+
+.hero-badge {
+display: inline-block;
+padding: 8px 16px;
+border-radius: 999px;
+background: rgba(215,181,109,0.12);
+border: 1px solid rgba(215,181,109,0.25);
+color: var(--gold-strong);
+font-size: 12px;
+font-weight: 800;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+margin-bottom: 18px;
+}
+
+.brand-title {
+font-family: 'Cormorant Garamond', serif;
+font-size: 38px;
+line-height: 1;
+color: rgba(255,255,255,0.72);
+font-weight: 600;
+margin-bottom: 8px;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+text-shadow: 0 6px 20px rgba(0,0,0,0.22);
+}
+
+.brand-subtitle {
+font-family: 'Cormorant Garamond', serif;
+font-size: 76px;
+line-height: 0.95;
+font-weight: 800;
+letter-spacing: 0.04em;
+margin-bottom: 18px;
+background: linear-gradient(90deg, #f0cf87 0%, #ffffff 40%, #7ee6a8 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+text-shadow:
+0 8px 24px rgba(0,0,0,0.25),
+0 2px 6px rgba(0,0,0,0.4);
+}
+
+.event-title {
+max-width: 760px;
+margin: 0 auto;
+font-size: 18px;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: rgba(255,255,255,0.92);
+}
+
+.hero-desc {
+max-width: 680px;
+margin: 18px auto 0;
+color: var(--muted);
+font-size: 16px;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 20px;
+  margin-bottom: 28px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+  object-fit: cover;
+}
+
+.quick-stats {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 16px;
+margin: 28px 0 14px;
+}
+
+.stat-card {
+padding: 22px 18px;
+border-radius: 22px;
+background: var(--card-soft);
+border: 1px solid var(--line);
+backdrop-filter: blur(12px);
+box-shadow: var(--shadow);
+text-align: center;
+}
+
+.stat-card strong {
+display: block;
+font-size: 34px;
+line-height: 1;
+color: var(--gold-strong);
+margin-bottom: 8px;
+}
+
+.stat-card span {
+display: block;
+font-size: 12px;
+text-transform: uppercase;
+letter-spacing: 0.16em;
+color: var(--muted);
+}
+
+.promo-section, .form-section, .contact-section {
+margin: 26px 0;
+padding: 28px;
+background: var(--card);
+border-radius: var(--radius);
+border: 1px solid var(--line);
+box-shadow: var(--shadow);
+backdrop-filter: blur(16px);
+}
+
+.promo-section {
+position: relative;
+overflow: hidden;
+}
+
+.promo-section::before {
+content: "";
+position: absolute;
+inset: 0 0 auto 0;
+height: 1px;
+background: linear-gradient(90deg, transparent, rgba(215,181,109,0.55), transparent);
+}
+
+.section-heading {
+display: flex;
+justify-content: space-between;
+align-items: end;
+gap: 16px;
+margin-bottom: 24px;
+flex-wrap: wrap;
+}
+
+.section-title {
+font-size: 34px;
+color: var(--gold);
+text-transform: uppercase;
+line-height: 1.05;
+letter-spacing: 0.04em;
+font-family: 'Cormorant Garamond', serif;
+font-weight: 700;
+}
+
+.tnc {
+font-size: 12px;
+color: var(--muted);
+text-transform: uppercase;
+letter-spacing: 0.15em;
+}
+
+.promo-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 18px;
+}
+
+.promo-card {
+background: rgba(255,255,255,0.035);
+border: 1px solid rgba(255,255,255,0.08);
+border-radius: 20px;
+overflow: hidden;
+}
+
+.promo-image {
+width: 100%;
+height: 320px;
+object-fit: contain;
+display: block;
+background: rgba(255,255,255,0.03);
+padding: 10px;
+}
+
+.promo-section:first-of-type .promo-image {
+height: 280px;
+object-fit: contain;
+background: rgba(255,255,255,0.03);
+padding: 10px;
+}
+
+.promo-content {
+padding: 18px;
+}
+
+.promo-card h3 {
+color: var(--gold-strong);
+margin-bottom: 12px;
+font-size: 22px;
+line-height: 1.1;
+font-family: 'Cormorant Garamond', serif;
+text-transform: uppercase;
+}
+
+.promo-details {
+font-size: 15px;
+margin: 7px 0;
+color: rgba(255,255,255,0.88);
+}
+
+.form-section {
+display: grid;
+grid-template-columns: 1fr;
+max-width: 520px;
+margin: 26px auto;
+}
+
+.form-box {
+background: rgba(255,255,255,0.04);
+border: 1px solid rgba(255,255,255,0.08);
+border-radius: 20px;
+padding: 22px;
+}
+
+.form-box .small-label {
+font-size: 12px;
+color: var(--gold-strong);
+letter-spacing: 0.16em;
+text-transform: uppercase;
+margin-bottom: 8px;
+font-weight: 700;
+}
+
+.form-box h3 {
+font-size: 28px;
+font-family: 'Cormorant Garamond', serif;
+color: #fff;
+line-height: 1.05;
+margin-bottom: 10px;
+}
+
+.form-box p {
+color: var(--muted);
+font-size: 14px;
+margin-bottom: 16px;
+}
+
+.form-input {
+width: 100%;
+padding: 15px 16px;
+margin: 10px 0;
+border-radius: 14px;
+border: 1px solid rgba(255,255,255,0.1);
+background: rgba(255,255,255,0.05);
+color: white;
+font-size: 15px;
+outline: none;
+}
+
+.form-input::placeholder {
+color: rgba(255,255,255,0.4);
+}
+
+.form-input:focus {
+border-color: rgba(215,181,109,0.4);
+box-shadow: 0 0 0 4px rgba(215,181,109,0.08);
+}
+
+.submit-btn {
+width: 100%;
+padding: 17px;
+background: linear-gradient(135deg, var(--gold), var(--gold-strong));
+color: #111;
+border: none;
+border-radius: 14px;
+font-size: 15px;
+font-weight: 800;
+text-transform: uppercase;
+letter-spacing: 0.08em;
+cursor: pointer;
+margin-top: 10px;
+transition: 0.2s ease;
+}
+
+.submit-btn:hover {
+transform: translateY(-1px);
+box-shadow: 0 14px 28px rgba(215,181,109,0.2);
+}
+
+.spinner {
+display: inline-block;
+width: 18px;
+height: 18px;
+margin-left: 10px;
+border: 2px solid rgba(17,17,17,0.25);
+border-top: 2px solid #111;
+border-radius: 50%;
+animation: spin 0.8s linear infinite;
+vertical-align: middle;
+}
+
+.slot-result-card {
+margin-top: 18px;
+background: rgba(255,255,255,0.96);
+color: #5f6f86;
+border-radius: 10px;
+padding: 22px;
+text-align: center;
+box-shadow: 0 16px 30px rgba(0,0,0,0.18);
+animation: fadeUp 0.4s ease;
+}
+
+.slot-result-number {
+font-size: 18px;
+font-weight: 500;
+}
+
+.slot-result-number span {
+font-weight: 700;
+font-size: 22px;
+color: #44556f;
+}
+
+.contact-top {
+display: flex;
+justify-content: space-between;
+gap: 18px;
+align-items: end;
+flex-wrap: wrap;
+margin-bottom: 16px;
+}
+
+.contact-top p {
+color: var(--muted);
+max-width: 520px;
+}
+
+.contact-info {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 16px;
+margin-top: 14px;
+}
+
+.contact-column {
+padding: 20px;
+border-radius: 18px;
+background: rgba(255,255,255,0.035);
+border: 1px solid rgba(255,255,255,0.08);
+}
+
+.contact-column h4 {
+color: var(--gold-strong);
+margin-bottom: 10px;
+font-size: 14px;
+letter-spacing: 0.14em;
+text-transform: uppercase;
+}
+
+.contact-column p {
+color: rgba(255,255,255,0.86);
+font-size: 15px;
+margin: 2px 0;
+}
+
+.footer-note {
+margin-top: 22px;
+text-align: center;
+color: var(--muted);
+font-size: 14px;
+}
+
+.powered-by {
+text-align: center;
+margin-top: 18px;
+padding: 16px;
+color: #a774d7;
+font-size: 13px;
+letter-spacing: 0.16em;
+text-transform: uppercase;
+}
+
+.strikingly-badge {
+color: #c589ff;
+font-weight: 800;
+}
+
+@keyframes spin {
+to { transform: rotate(360deg); }
+}
+
+@keyframes fadeUp {
+from {
+opacity: 0;
+transform: translateY(16px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+@media (max-width: 900px) {
+.promo-grid,
+.contact-info,
+.quick-stats {
+grid-template-columns: 1fr;
+}
+
+.brand-title {
+font-size: 30px;
+}
+
+.brand-subtitle {
+font-size: 56px;
+letter-spacing: 0.03em;
+}
+
+.event-title {
+font-size: 15px;
+letter-spacing: 0.12em;
+}
+}
+
+@media (max-width: 640px) {
+.overlay {
+padding: 16px 10px 40px;
+}
+
+.top-bar {
+top: 10px;
+padding: 10px 12px;
+border-radius: 16px;
+}
+
+.brand-title {
+font-size: 24px;
+}
+
+.brand-subtitle {
+font-size: 42px;
+line-height: 1;
+letter-spacing: 0.02em;
+}
+
+.section-title {
+font-size: 28px;
+}
+
+.promo-section, .form-section, .contact-section {
+padding: 20px;
+border-radius: 20px;
+}
+
+.promo-image {
+height: 260px;
+}
+
+.promo-section:first-of-type .promo-image {
+height: 280px;
+}
+}
+</style>
+</head>
+<body>
+<div id="fullscreenPassword" class="fullscreen-password">
+<div class="password-box">
+<div class="mini-label">Private Access</div>
+<h2>Enter Access Password</h2>
+<p>Please enter password to view this final launching offer page.</p>
+<input type="password" id="sitePassword" class="password-input" placeholder="Please enter password">
+<button class="password-btn" onclick="checkSitePassword()">Submit</button>
+<div class="error-msg" id="siteErrorMsg">Wrong Password! Try Again.</div>
+</div>
+</div>
+
+<div id="adminMenu" class="admin-menu">
+<button class="menu-close" onclick="toggleAdminMenu()">×</button>
+<div class="menu-header">
+<h3>Page Navigation</h3>
+<p>Select any item below to change the displayed buyer slot.</p>
+</div>
+<div class="slot-option" onclick="setSlotNumber(1)">1</div>
+<div class="slot-option" onclick="setSlotNumber(2)">2</div>
+<div class="slot-option" onclick="setSlotNumber(3)">3</div>
+<div class="slot-option" onclick="setSlotNumber(4)">4</div>
+<div class="slot-option" onclick="setSlotNumber(5)">5</div>
+<div class="slot-option" onclick="setSlotNumber(0)">0</div>
+<div style="margin-top: 40px; font-size: 12px; color: #999; letter-spacing: 0.14em; text-transform: uppercase;"></div>
+</div>
+
+<div class="overlay" id="mainContent">
+<div class="container">
+<div class="top-bar">
+<div class="top-brand">
+<button class="menu-toggle" onclick="toggleAdminMenu()">☰</button>
+<div>
+<h4>E-Sentral Elite Condo</h4>
+<p>Final Launching Offer</p>
+</div>
+</div>
+</div>
+
+<div class="hero">
+<!-- 你的本地照片 hero.jpg -->
+<img src="hero.jpg" class="hero-image" alt="E-Sentral Smart AI Condo">
+
+<div class="brand-title">E-Sentral</div>
+<div class="brand-subtitle">SMART AI CONDO</div>
+<div class="event-title">E-SENTRAL ELITE CONDO – FINAL LAUNCHING OFFER</div>
+</div>
+
+<div class="quick-stats">
+<div class="stat-card">
+<strong>3</strong>
+<span>Layout Types</span>
+</div>
+<div class="stat-card">
+<strong>7%</strong>
+<span>Extra Early Bird Offer</span>
+</div>
+<div class="stat-card">
+<strong>RM18K</strong>
+<span>Extra Furnishing Offer</span>
+</div>
+</div>
+
+<div class="promo-section">
+<div class="section-heading">
+<div>
+<h2 class="section-title">Free Package & Smart Features</h2>
+<p class="tnc">Included features aligned with the exact categories you requested</p>
+</div>
+</div>
+
+<div class="promo-grid">
+<div class="promo-card">
+<img src="air.jpg" alt="Free Air Conditioner" class="promo-image">
+<div class="promo-content">
+<h3>Free Air Conditioner</h3>
+<p class="promo-details">Type LOSO 2x Air Cond</p>
+<p class="promo-details">Type B 2 rooms 2x Air Cond</p>
+<p class="promo-details">Type C 3 rooms 2x Air Cond</p>
+</div>
+</div>
+
+<div class="promo-card">
+<img src="cabinet.jpg" alt="Kitchen Cabinet" class="promo-image">
+<div class="promo-content">
+<h3>Kitchen Cabinet</h3>
+<p class="promo-details">Type B 2 rooms top and bottom</p>
+<p class="promo-details">Type C 3 rooms top and bottom</p>
+</div>
+</div>
+
+<div class="promo-card">
+<img src="hob.jpg" alt="Hood and Hob" class="promo-image">
+<div class="promo-content">
+<h3>Hood and Hob</h3>
+<p class="promo-details">Functional kitchen setup included for daily use and better perceived value.</p>
+</div>
+</div>
+
+<div class="promo-card">
+<img src="water.jpg" alt="Water Heater" class="promo-image">
+<div class="promo-content">
+<h3>Water Heater</h3>
+<p class="promo-details">LOSO 2x water heater</p>
+<p class="promo-details">Type B 2 rooms 2x water heater</p>
+<p class="promo-details">Type C 3 rooms 2x water heater</p>
+</div>
+</div>
+
+<div class="promo-card">
+<img src="lock.webp" alt="Smart Door Lock" class="promo-image">
+<div class="promo-content">
+<h3>Smart Door Lock</h3>
+<p class="promo-details">LOSO FREE SMART DOOR LOCK</p>
+<p class="promo-details">Type B 2 rooms FREE SMART DOOR LOCK</p>
+<p class="promo-details">Type C 3 rooms FREE SMART DOOR LOCK</p>
+</div>
+</div>
+
+<div class="promo-card">
+<img src="smart.png" alt="Smart Home System" class="promo-image">
+<div class="promo-content">
+<h3>Smart Home System</h3>
+<p class="promo-details"><strong>LOSO</strong></p>
+<p class="promo-details">- Voice Activation</p>
+<p class="promo-details">- Motion Detector</p>
+<p class="promo-details">- Door Sensor</p>
+
+<p class="promo-details" style="margin-top:10px;"><strong>Type B 2 rooms & Type C 3 rooms</strong></p>
+<p class="promo-details">- Voice Activation</p>
+<p class="promo-details">- Motion Detector</p>
+<p class="promo-details">- Curtain Track</p>
+<p class="promo-details">- Door Sensor</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="promo-section">
+<div class="section-heading">
+<div>
+<h2 class="section-title">Final Launching Rebate</h2>
+<p class="tnc">Terms & Conditions Apply • Subject to Developer Approval</p>
+</div>
+</div>
+
+<div class="promo-grid">
+<div class="promo-card">
+<div class="promo-content">
+<h3>Type LOSO</h3>
+<p class="promo-details">Bumi rebate: 21% + RM8,000</p>
+<p class="promo-details">Non-Bumi rebate: 19% + RM8,000</p>
+</div>
+</div>
+
+<div class="promo-card">
+<div class="promo-content">
+<h3>Type B</h3>
+<p class="promo-details">Bumi rebate: 10% + 10% + RM18,000</p>
+<p class="promo-details">Non-Bumi rebate: 14% + RM18,000</p>
+</div>
+</div>
+
+<div class="promo-card">
+<div class="promo-content">
+<h3>Type C</h3>
+<p class="promo-details">Bumi rebate: 10% + 10% + RM18,000</p>
+<p class="promo-details">Non-Bumi rebate: 14% + RM18,000</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="form-section">
+<div class="form-box">
+<div class="small-label">Check Promotion Slot Availability</div>
+<p>Submit your details and the system will check current slot availability.</p>
+
+<input type="text" class="form-input" id="customerName" placeholder="Your Name">
+<input type="text" class="form-input" id="customerPhone" placeholder="Phone Number">
+
+<button class="submit-btn" id="submitBtn" onclick="checkPromotionSlot()">
+<span id="submitText">Submit</span>
+<span id="spinner" class="spinner" style="display:none;"></span>
+</button>
+
+<div id="slotResult" class="slot-result-card" style="display:none;">
+<div class="slot-result-number">
+<span id="finalSlot">6</span>/50 SLOTS AVAILABLE
+</div>
+</div>
+</div>
+</div>
+
+<div class="contact-section">
+<div class="contact-top">
+<div>
+<h2 class="section-title">Contact Us</h2>
+<p></p>
+</div>
+</div>
+
+<div class="contact-info">
+<div class="contact-column">
+<h4>Address</h4>
+<p>20, Jln Marikh CB U5/CB,</p>
+<p>Taman Subang Kristal, 40150 Shah Alam, Selangor</p>
+</div>
+<div class="contact-column">
+<h4>Contact</h4>
+<p>011-6578 8717</p>
+<p></p>
+</div>
+</div>
+
+<p class="footer-note">© Brought to you by E-Sentral Elite Condo</p>
+</div>
+
+<div style="display:none;">
+<div id="displayedSlot">6</div>
+</div>
+
+<script>
+function checkSitePassword() {
+const inputPassword = document.getElementById('sitePassword').value;
+const correctPassword = 'ecentral123';
+
+if (inputPassword === correctPassword) {
+document.getElementById('fullscreenPassword').style.display = 'none';
+document.getElementById('mainContent').style.display = 'block';
+document.getElementById('sitePassword').value = '';
+document.getElementById('siteErrorMsg').style.display = 'none';
+} else {
+document.getElementById('siteErrorMsg').style.display = 'block';
+}
+}
+
+document.getElementById('sitePassword').addEventListener('keypress', function(e) {
+if (e.key === 'Enter') {
+checkSitePassword();
+}
+});
+
+function toggleAdminMenu() {
+document.getElementById('adminMenu').classList.toggle('active');
+}
+
+function setSlotNumber(num) {
+document.getElementById('displayedSlot').textContent = num;
+toggleAdminMenu();
+}
+
+function checkPromotionSlot() {
+const name = document.getElementById('customerName').value.trim();
+const phone = document.getElementById('customerPhone').value.trim();
+
+if (!name || !phone) {
+alert('Please fill in your name and phone number.');
+return;
+}
+
+const btn = document.getElementById('submitBtn');
+const text = document.getElementById('submitText');
+const spinner = document.getElementById('spinner');
+const result = document.getElementById('slotResult');
+const finalSlot = document.getElementById('finalSlot');
+const slot = document.getElementById('displayedSlot').textContent;
+
+btn.disabled = true;
+text.textContent = 'Submitting...';
+spinner.style.display = 'inline-block';
+result.style.display = 'none';
+
+setTimeout(function() {
+finalSlot.textContent = slot;
+result.style.display = 'block';
+btn.disabled = false;
+text.textContent = 'Submit';
+spinner.style.display = 'none';
+}, 1500);
+}
+</script>
+</body>
+</html>
